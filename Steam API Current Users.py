@@ -50,9 +50,9 @@ def get_global_game_stats():
 		game_data =  response.json()
 		print(game_data)
     
-# get_current_players()
+get_current_players()
 
-get_global_game_stats()
+# get_global_game_stats()
 
 
 
