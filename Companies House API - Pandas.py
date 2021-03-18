@@ -45,7 +45,7 @@ for company in company_number:
 				other_names = temp_name[surname_end_location + 1:end] #sets the other names
 				officer = other_names.upper() + ' ' + surname.upper() #creates new name
 				companies_house_data.append([company, officer])
-			except ValueError:
+			except Exception:
 				pass
 				
 ch_excel_data = pd.DataFrame(companies_house_data, columns=['Company', 'Officer'])

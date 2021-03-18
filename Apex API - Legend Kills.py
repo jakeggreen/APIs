@@ -27,8 +27,10 @@ player_name_file = open("Players.txt", "rt")
 players = player_name_file.read()
 player_names = players.split("\n")
 
-all_legend_names = ["Bloodhound", "Gibraltar", "Lifeline", "Pathfinder", "Wraith", "Bangalore", "Caustic", "Mirage", 
+all_legend_names_list = ["Bloodhound", "Gibraltar", "Lifeline", "Pathfinder", "Wraith", "Bangalore", "Caustic", "Mirage", 
 "Octane", "Wattson", "Crypto", "Revenant", "Loba", "Rampart", "Horizon", "Fuse"]
+
+all_legend_names_set = set(all_legend_names_list)
 
 url = 'https://public-api.tracker.gg/v2/apex/standard/profile/origin/'
 
@@ -48,7 +50,7 @@ for player in player_names:
 	response = requests.request("GET", full_url, headers=headers, data=payload)
 	player_data = response.json()
 	#process reponse data
-	for legend in all_legend_names:
+	for legend in all_legend_names_set:
 		#set default kills to 0
 		kills = 0;
 		player = player;
@@ -60,7 +62,7 @@ for player in player_names:
 					#if kill data is available then set value of kills
 					if item.get("stats") and item.get("stats").get("kills") and item.get("stats").get("kills").get("value"):
 						kills = int(item["stats"]["kills"]["value"])
-		except KeyError:
+		except Exception:
 			pass
 		#initialise Legend object for each legend using player name, legend name and kills as parameters.
 		legend_data.append(Legend(player, legend, kills));
