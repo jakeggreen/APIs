@@ -14,11 +14,6 @@ with open('Company Numbers.csv') as csvfile:
     company_number = csvfile.read().split('\n')
     company_number.remove('')
 
-#get list of company numbers from text file
-# CompanyNumber_file = open('Company Numbers.txt', 'rt')
-# company_file = CompanyNumber_file.read()
-# company_number = company_file.split('\n')
-
 url = 'https://api.company-information.service.gov.uk/company/' 
 
 payload = {}
