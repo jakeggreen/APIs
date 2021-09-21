@@ -15,6 +15,8 @@ with open('Company Numbers.csv') as csvfile:
     company_number = csvfile.read().split('\n')
     company_number.remove('')
 
+#change URL head depending on search being used - top for company number, bottom for company name
+
 url = 'https://api.company-information.service.gov.uk/company/' 
 
 url_name = 'https://api.company-information.service.gov.uk/search/companies?q=' 
@@ -29,7 +31,7 @@ payload = {}
 
 headers = {'Authorization': APIKey}
 
-companies_house_data = list();
+companies_house_data = list()
 
 #end setup
 
@@ -59,9 +61,8 @@ def get_info():
 
 
 if __name__ == '__main__':
-	get_info()
 
-	print(companies_house_data)
+	get_info()
 
 	ch_excel_data = pd.DataFrame(companies_house_data, columns = ['Company', 'PSC ID', 'PSC Name'])
 	print(ch_excel_data)
