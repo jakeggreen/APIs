@@ -12,7 +12,7 @@ APIKey = APIKey_file.read()
 #get list of company numbers from csv file
 with open('Company Numbers.csv') as csvfile:
     company_number = csvfile.read().split('\n')
-    company_number.remove('')
+    # company_number.remove('')
 
 url = 'https://api.company-information.service.gov.uk/company/' 
 

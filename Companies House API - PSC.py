@@ -13,7 +13,7 @@ APIKey = APIKey_file.read()
 #import the list of company numbers from csv file
 with open('Company Numbers.csv') as csvfile:
     company_number = csvfile.read().split('\n')
-    company_number.remove('')
+    # company_number.remove('')
 
 #change URL head depending on search being used - top for company number, bottom for company name
 
